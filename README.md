@@ -4,4 +4,10 @@ This module converts dropdown attributes to filterable fields for dropdown, visu
 
 See screenshots:
 
-![Main Example](screenshots/screenshot1.png)
+![Default Dropdown](screenshots/screenshot1.png)
+
+![Filtered Options](screenshots/screenshot2.png)
+
+![Value Not Found](screenshots/screenshot3.png)
+
+![Option Saved Confirmation](screenshots/screenshot4.png)
