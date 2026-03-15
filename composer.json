@@ -1,0 +1,17 @@
+{
+    "name": "xtreme/attribute-filtering",
+    "description": "Searchable admin product attribute selects",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "MIT"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Xtreme\\AttributeFiltering\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

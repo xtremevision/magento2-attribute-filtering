@@ -1,0 +1,74 @@
+<!--
+/**
+ * Copyright © Xtreme. All rights reserved.
+ */
+-->
+<div class="xtreme-search-select">
+    <input class="admin__control-text xtreme-search-select__input"
+           type="text"
+           data-bind="
+                value: searchTerm,
+                valueUpdate: 'input',
+                hasFocus: focused,
+                event: {
+                    focus: onSearchFocus.bind($data),
+                    blur: onSearchBlur.bind($data),
+                    input: onSearchInput.bind($data),
+                    keydown: onSearchKeydown.bind($data)
+                },
+                attr: {
+                    id: uid,
+                    disabled: disabled,
+                    placeholder: searchPlaceholder,
+                    'aria-describedby': noticeId,
+                    autocomplete: 'off'
+                }" />
+
+    <div class="xtreme-search-select__dropdown"
+         data-bind="visible: isDropdownOpen">
+        <ul class="xtreme-search-select__options">
+            <!-- ko foreach: filteredOptions -->
+            <li class="xtreme-search-select__option"
+                data-bind="
+                    text: label,
+                    css: {
+                        '_highlighted': $parent.isOptionHighlighted($data),
+                        '_selected': $parent.isOptionSelected($data),
+                        '_caption': !!$data.isCaption
+                    },
+                    event: {
+                        mouseenter: function () { $parent.highlightOption($data); },
+                        mousedown: function (model, event) { return $parent.selectOption($data, event); }
+                    }"></li>
+            <!-- /ko -->
+            <!-- ko ifnot: filteredOptions().length -->
+            <li class="xtreme-search-select__option _empty" data-bind="text: noMatchesMessage"></li>
+            <!-- ko if: canCreateOption() -->
+            <li class="xtreme-search-select__create">
+                <button type="button"
+                        class="action-secondary"
+                        data-bind="
+                            text: getCreateOptionLabel(),
+                            click: createOption.bind($data),
+                            disable: creatingOption"></button>
+            </li>
+            <!-- /ko -->
+            <!-- /ko -->
+        </ul>
+    </div>
+
+    <select class="admin__control-select no-display"
+            data-bind="
+                attr: {
+                    name: inputName,
+                    id: uid + '_select',
+                    disabled: disabled,
+                    'aria-hidden': true,
+                    tabindex: -1
+                },
+                optgroup: options,
+                value: value,
+                optionsCaption: caption,
+                optionsValue: 'value',
+                optionsText: 'label'"></select>
+</div>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Eav">
+        <plugin name="xtreme_attribute_filtering_product_form_eav"
+                type="Xtreme\AttributeFiltering\Plugin\Catalog\Ui\DataProvider\Product\Form\Modifier\EavPlugin"
+                sortOrder="10"/>
+    </type>
+</config>
